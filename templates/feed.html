@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TikTok Feed</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='tiktok.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ICONS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body class="feed-body">
+
+<!-- TOP BAR -->
+<div class="top-bar">
+    <h2 class="logo">TikTok</h2>
+    <div class="user">@{{ current_user }}</div>
+</div>
+
+<!-- FEED -->
+<div class="feed-container">
+
+{% if videos %}
+
+{% for video in videos %}
+
+<div class="video-card">
+
+    <!-- VIDEO -->
+    <video class="video-player" autoplay loop muted playsinline>
+        <source src="{{ url_for('static', filename=video.file) }}" type="video/mp4">
+    </video>
+
+    <!-- OVERLAY -->
+    <div class="overlay">
+
+        <!-- LEFT SIDE INFO -->
+        <div class="video-info">
+            <h3>{{ video.caption }}</h3>
+            <p>@{{ video.username }}</p>
+        </div>
+
+        <!-- RIGHT SIDE ACTIONS -->
+        <div class="actions">
+
+            <!-- LIKE -->
+            <div class="action-item">
+                <i class="fa-solid fa-heart"></i>
+                <span>{{ video.likes }}</span>
+            </div>
+
+            <!-- COMMENT -->
+            <div class="action-item">
+                <i class="fa-solid fa-comment"></i>
+                <span>{{ video.comments }}</span>
+            </div>
+
+            <!-- SHARE -->
+            <div class="action-item">
+                <i class="fa-solid fa-share"></i>
+                <span>{{ video.shares }}</span>
+            </div>
+
+            <!-- FAVORITE -->
+            <div class="action-item">
+                <i class="fa-solid fa-bookmark"></i>
+                <span>Save</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endfor %}
+
+{% else %}
+
+<div style="color:white; text-align:center; margin-top:50vh;">
+    No videos available
+</div>
+
+{% endif %}
+
+</div>
+
+<!-- BOTTOM NAV -->
+<div class="

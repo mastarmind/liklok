@@ -1,0 +1,352 @@
+/* =========================
+   GLOBAL THEME (TIKTOK STYLE)
+========================= */
+
+:root {
+    --bg: #000;
+    --card: #111;
+    --text: #fff;
+    --muted: #aaa;
+    --pink: #ff0050;
+    --cyan: #00f2ea;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+}
+
+/* =========================
+   AUTH PAGES
+========================= */
+
+body.auth-body {
+    overflow: hidden;
+}
+
+/* glowing background */
+.bg-glow {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    filter: blur(120px);
+    opacity: 0.5;
+    z-index: 0;
+}
+
+.bg-glow.pink {
+    background: var(--pink);
+    top: -100px;
+    left: -100px;
+}
+
+.bg-glow.blue {
+    background: var(--cyan);
+    bottom: -100px;
+    right: -100px;
+}
+
+/* auth layout */
+.auth-wrapper {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.auth-card {
+    width: 360px;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 40px;
+}
+
+/* brand */
+.brand h1 {
+    margin: 0;
+    font-size: 32px;
+    background: linear-gradient(90deg, var(--pink), var(--cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* inputs */
+.input-group {
+    position: relative;
+    margin-top: 25px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid rgba(255,255,255,0.2);
+    color: white;
+    outline: none;
+}
+
+.input-group label {
+    position: absolute;
+    left: 0;
+    top: 12px;
+    opacity: 0.6;
+    transition: 0.3s;
+    pointer-events: none;
+}
+
+.input-group input:focus ~ label,
+.input-group input:valid ~ label {
+    top: -10px;
+    font-size: 12px;
+    opacity: 1;
+}
+
+/* buttons */
+.btn-primary {
+    width: 100%;
+    margin-top: 30px;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(90deg, var(--pink), var(--cyan));
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* =========================
+   FEED (TIKTOK STYLE)
+========================= */
+
+body.feed-body {
+    margin: 0;
+    background: black;
+}
+
+/* top bar */
+.top-bar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 55px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(10px);
+    z-index: 10;
+}
+
+/* logo */
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    background: linear-gradient(90deg, var(--pink), var(--cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* feed scroll */
+.feed-container {
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+}
+
+.video-card {
+    height: 100vh;
+    position: relative;
+    scroll-snap-align: start;
+}
+
+.video-player {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* overlay */
+.overlay {
+    position: absolute;
+    bottom: 20px;
+    left: 15px;
+    right: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+/* video info */
+.video-info h3 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.video-info p {
+    margin: 5px 0 0;
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+/* =========================
+   TIKTOK ACTION BAR (FIXED)
+========================= */
+
+.actions {
+    position: absolute;
+    right: 12px;
+    bottom: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+}
+
+/* each icon block */
+.action-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 12px;
+    text-align: center;
+}
+
+/* icon circle */
+.action-item i {
+    font-size: 26px;
+    background: rgba(255,255,255,0.08);
+    padding: 12px;
+    border-radius: 50%;
+    margin-bottom: 5px;
+}
+
+/* numbers */
+.action-item span {
+    font-size: 13px;
+    font-weight: bold;
+    opacity: 0.9;
+}
+
+/* colors */
+.fa-heart {
+    color: #ff2d55;
+}
+
+.fa-comment {
+    color: white;
+}
+
+.fa-share {
+    color: white;
+}
+
+.fa-bookmark {
+    color: #00f2ea;
+}
+
+/* =========================
+   PROFILE
+========================= */
+
+body.profile-body {
+    background: #0f0f0f;
+}
+
+.profile-header {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.avatar {
+    width: 90px;
+    height: 90px;
+    background: linear-gradient(45deg, var(--pink), var(--cyan));
+    border-radius: 50%;
+    margin: auto;
+}
+
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+/* =========================
+   BOTTOM NAV
+========================= */
+
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background: rgba(0,0,0,0.6);
+    padding: 10px 0;
+    backdrop-filter: blur(10px);
+}
+
+.bottom-nav a {
+    color: white;
+    font-size: 22px;
+    text-decoration: none;
+}
+
+/* =========================
+   LOGIN UI
+========================= */
+
+.login-btn {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 999;
+    background: linear-gradient(90deg, var(--pink), var(--cyan));
+    color: white;
+    padding: 10px 15px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.85);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.login-box {
+    background: #111;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    width: 300px;
+}
+
+.login-btn-big {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 15px;
+    background: linear-gradient(90deg, var(--pink), var(--cyan));
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+}

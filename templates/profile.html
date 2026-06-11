@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='tiktok.css') }}">
+</head>
+
+<body class="profile-body">
+
+<div class="profile-header">
+
+    <div class="avatar"></div>
+
+    <h2>@{{ profile_user }}</h2>
+
+    <div class="stats">
+        <div><b>{{ videos|length }}</b><br>Videos</div>
+        <div><b>0</b><br>Followers</div>
+        <div><b>0</b><br>Likes</div>
+    </div>
+
+    <a href="/feed" class="back-btn">← Back to Feed</a>
+
+</div>
+
+<hr>
+
+<div class="profile-videos">
+
+    {% for video in videos %}
+    <div class="profile-video">
+        <video muted>
+            <source src="{{ url_for('static', filename='videos/' + video[2]) }}">
+        </video>
+        <p>{{ video[1] }}</p>
+    </div>
+    {% endfor %}
+
+</div>
+
+</body>
+</html>

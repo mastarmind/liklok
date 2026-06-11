@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TikTok Login</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='tiktok.css') }}">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body class="auth-body">
+
+    <!-- background effects -->
+    <div class="bg-glow pink"></div>
+    <div class="bg-glow blue"></div>
+
+    <div class="auth-wrapper">
+
+        <div class="auth-card">
+
+            <div class="brand">
+                <h1>TikTok</h1>
+                <p>Welcome back</p>
+            </div>
+
+            <form method="POST" class="auth-form">
+
+                <div class="input-group">
+                    <input type="text" name="username" required>
+                    <label>Username</label>
+                    <span></span>
+                </div>
+
+                <div class="input-group">
+                    <input type="password" name="password" required>
+                    <label>Password</label>
+                    <span></span>
+                </div>
+
+                <button type="submit" class="btn-primary">
+                    Log in
+                </button>
+
+            </form>
+
+            <div class="divider">
+                <span>OR</span>
+            </div>
+
+            <button class="btn-secondary">
+                Continue with Google
+            </button>
+
+            <p class="switch">
+                Don’t have an account?
+                <a href="/signup">Sign up</a>
+            </p>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
